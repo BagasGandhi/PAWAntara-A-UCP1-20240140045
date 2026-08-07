@@ -1,0 +1,32 @@
+<header class="bg-green-700 text-white sticky top-0 z-50 shadow-md">
+  <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between" aria-label="Navigasi utama">
+    <a href="/" class="text-xl font-bold tracking-wide">🛒 Toko Sembako Ariesta</a>
+
+    <!-- Menu desktop -->
+    <ul class="hidden md:flex gap-6 font-medium">
+      <li><a href="/" class="hover:text-green-200 <%= activePage === 'beranda' ? 'underline underline-offset-4' : '' %>">Beranda</a></li>
+      <li><a href="/produk" class="hover:text-green-200 <%= activePage === 'produk' ? 'underline underline-offset-4' : '' %>">Produk</a></li>
+      <li><a href="/tanya-ai" class="hover:text-green-200 <%= activePage === 'tanya-ai' ? 'underline underline-offset-4' : '' %>">Tanya AI</a></li>
+    </ul>
+
+    <!-- Tombol hamburger (mobile only) -->
+    <button
+      id="hamburgerBtn"
+      class="md:hidden flex flex-col justify-center items-center w-9 h-9"
+      aria-label="Buka menu navigasi"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+    >
+      <span id="barTop" class="block w-6 h-0.5 bg-white mb-1.5 transition-transform"></span>
+      <span id="barMid" class="block w-6 h-0.5 bg-white mb-1.5 transition-opacity"></span>
+      <span id="barBottom" class="block w-6 h-0.5 bg-white transition-transform"></span>
+    </button>
+  </nav>
+
+  <!-- Menu mobile (hidden by default, ditoggle lewat JS) -->
+  <ul id="mobileMenu" class="md:hidden hidden flex-col bg-green-800 px-4 pb-4 font-medium">
+    <li class="py-2 border-b border-green-600"><a href="/">Beranda</a></li>
+    <li class="py-2 border-b border-green-600"><a href="/produk">Produk</a></li>
+    <li class="py-2"><a href="/tanya-ai">Tanya AI</a></li>
+  </ul>
+</header>
