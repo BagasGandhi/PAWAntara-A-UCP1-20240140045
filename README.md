@@ -104,4 +104,4 @@ Ketika ID produk yang diakses tidak ada di data (contoh: `/produk/999`), sistem 
 Halaman ini menyediakan tampilan mirip chat, berisi kotak percakapan dan form input pertanyaan di bagian bawah. Form sudah dibuat aksesibel dengan label yang terhubung ke input (`for`/`id`), serta divalidasi dasar (tidak bisa submit pesan kosong) menggunakan JavaScript `preventDefault()`. Logika balasan otomatis dari AI belum diimplementasikan di sesi ini dan baru akan ditambahkan pada Sprint 2 melalui endpoint `POST /api/chat`.
 
 ### Responsive Mobile (Hamburger Menu)
-(docs/6-mobile-navbar.png)
+![Hamburger Menu](docs/6-mobile-navbar.png)
