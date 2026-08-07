@@ -73,3 +73,35 @@ toko-sembako-ariesta/
 - EJS (view engine) + partials
 - Tailwind CSS (via CDN)
 - Vanilla JavaScript (hamburger menu, form handling)
+
+## Tampilan (UI) dan Penjelasan
+
+Desain menggunakan tema warna hijau untuk merepresentasikan produk sembako yang segar dan terpercaya. Layout dibuat responsif dengan Tailwind CSS.
+
+### Beranda
+![Beranda](docs/1-beranda-desktop.png)
+
+Halaman beranda menampilkan hero section berisi judul, deskripsi singkat toko, dan tombol ajakan "Lihat Semua Produk" agar pengunjung langsung diarahkan ke katalog. Di bawahnya ada section "Produk Pilihan" yang menampilkan 4 produk secara preview dalam bentuk card, sehingga pengunjung tidak perlu berpindah halaman dulu untuk melihat contoh produk yang dijual.
+
+### Halaman Produk & Filter
+![Produk](docs/2-produk-filter-desktop.png)
+
+Halaman ini menampilkan seluruh produk dalam bentuk grid card, lengkap dengan form filter di bagian atas berupa input pencarian nama produk dan dropdown kategori. Filter diproses di sisi server menggunakan query string (`?search=` dan `?kategori=`), sehingga hasil yang tampil benar-benar sesuai dengan pencarian pengguna, seperti terlihat pada contoh pencarian "beras" di atas.
+
+### Detail Produk
+![Detail Produk](docs/3-detail-produk.png)
+
+Halaman detail menampilkan informasi lengkap satu produk (nama, kategori, harga, dan stok) dengan layout dua kolom: ikon/gambar produk di sisi kiri dan informasi di sisi kanan. Halaman ini diakses lewat route dinamis `/produk/:id`, di mana ID diambil langsung dari parameter URL.
+
+### Produk Tidak Ditemukan
+![Not Found](docs/4-produk-tidak-ditemukan.png)
+
+Ketika ID produk yang diakses tidak ada di data (contoh: `/produk/999`), sistem tidak menampilkan error atau membuat server crash, melainkan menampilkan halaman pesan "Produk Tidak Ditemukan" yang informatif, lengkap dengan tombol untuk kembali ke daftar produk. Ini menunjukkan penanganan kasus route dinamis dengan ID tidak valid sudah berjalan sesuai ketentuan.
+
+### Tanya AI
+![Tanya AI](docs/5-tanya-ai.png)
+
+Halaman ini menyediakan tampilan mirip chat, berisi kotak percakapan dan form input pertanyaan di bagian bawah. Form sudah dibuat aksesibel dengan label yang terhubung ke input (`for`/`id`), serta divalidasi dasar (tidak bisa submit pesan kosong) menggunakan JavaScript `preventDefault()`. Logika balasan otomatis dari AI belum diimplementasikan di sesi ini dan baru akan ditambahkan pada Sprint 2 melalui endpoint `POST /api/chat`.
+
+### Responsive Mobile (Hamburger Menu)
+(docs/6-mobile-navbar.png)
