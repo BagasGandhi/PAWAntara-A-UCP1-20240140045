@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="bg-gray-50 text-gray-800 flex flex-col min-h-screen">
+
+  <%- include('partials/navbar') %>
+
+  <main class="flex-1 max-w-6xl mx-auto px-4 py-10 w-full">
+    <h1 class="text-2xl font-bold mb-6">Daftar Produk</h1>
+
+    <!-- Form Filter -->
+    <form method="GET" action="/produk" class="bg-white rounded-lg shadow p-4 mb-8 grid sm:grid-cols-3 gap-4" aria-label="Filter produk">
+      <div>
+        <label for="search" class="block text-sm font-medium mb-1">Cari Produk</label>
+        <input
+          type="text"
+          id="search"
+          name="search"
+          value="<%= search %>"
+          placeholder="contoh: beras"
+          class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+        />
+      </div>
+
+      <div>
+        <label for="kategori" class="block text-sm font-medium mb-1">Kategori</label>
+        <select
+          id="kategori"
+          name="kategori"
+          class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-green-500"
+        >
+          <option value="" <%= kategori === '' ? 'selected' : '' %>>Semua Kategori</option>
+          <option value="sembako" <%= kategori === 'sembako' ? 'selected' : '' %>>Sembako</option>
+          <option value="kebutuhan-rumah-tangga" <%= kategori === 'kebutuhan-rumah-tangga' ? 'selected' : '' %>>Kebutuhan Rumah Tangga</option>
+        </select>
+      </div>
+
+      <div class="flex items-end">
+        <button type="submit" class="w-full bg-green-600 text-white font-medium py-2 rounded hover:bg-green-700 transition">
+          Terapkan Filter
+        </button>
+      </div>
+    </form>
+
+    <!-- Hasil Produk -->
+    <% if (products.length === 0) { %>
+      <p class="text-gray-500 text-center py-10">Tidak ada produk yang cocok dengan pencarian/filter kamu.</p>
+    <% } else { %>
+      <section class="grid sm:grid-cols-2 md:grid-cols-3 gap-4" aria-label="Hasil produk">
+        <% products.forEach(function(p) { %>
+          <article class="bg-white rounded-lg shadow p-4 flex flex-col">
+            <div class="bg-green-50 rounded h-24 flex items-center justify-center text-3xl mb-3">📦</div>
+            <h2 class="font-semibold mb-1"><%= p.name %></h2>
+            <p class="text-sm text-gray-500 mb-1 capitalize"><%= p.category.replace('-', ' ') %></p>
+            <p class="text-green-700 font-bold mb-1">Rp<%= p.price.toLocaleString('id-ID') %></p>
+            <p class="text-xs text-gray-400 mb-3">Stok: <%= p.stock %></p>
+            <a href="/produk/<%= p.id %>" class="mt-auto text-sm text-center bg-green-600 text-white py-2 rounded hover:bg-green-700 transition">
+              Lihat Detail
+            </a>
+          </article>
+        <% }); %>
+      </section>
+    <% } %>
+  </main>
+
+  <%- include('partials/footer') %>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
