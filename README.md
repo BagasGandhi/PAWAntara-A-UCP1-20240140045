@@ -1,9 +1,7 @@
-# Toko Sembako Ariesta
+Nama: Gandhi Muhammad Bagas Saputra
+NIM: 20240140045
 
-**Nama:** (isi nama kamu)
-**NIM:** (isi NIM kamu)
-
-## Deskripsi Project
+Deskripsi Project
 
 Website & REST API untuk Toko Sembako Ariesta, sebuah UMKM sembako & kebutuhan rumah tangga. Dibangun menggunakan Node.js + Express.js dengan view engine EJS. Project ini merupakan hasil pengerjaan **UCP 1 - Sprint 1**, berisi fondasi halaman (Beranda, Produk, Detail Produk, Tanya AI), fitur filter produk, serta endpoint REST API read-only untuk data produk.
 
