@@ -1,0 +1,29 @@
+/* public/css/style.css */
+/* Style tambahan di luar Tailwind, termasuk media query custom */
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Breakpoint mobile (default sampai 767px) */
+@media (max-width: 767px) {
+  #mobileMenu.flex {
+    display: flex;
+  }
+}
+
+/* Breakpoint desktop (768px ke atas) */
+@media (min-width: 768px) {
+  #mobileMenu {
+    display: none !important;
+  }
+}
+
+/* Scrollbar tipis untuk kotak chat */
+#chatBox::-webkit-scrollbar {
+  width: 6px;
+}
+#chatBox::-webkit-scrollbar-thumb {
+  background-color: #a7d7b3;
+  border-radius: 4px;
+}
